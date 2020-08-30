@@ -1,30 +1,37 @@
 .box {
     position: absolute;
     top: 25%;
-    left: 25%;
-    width: 50%;
-    height: 40%;
-    background:black;
+    left: 35%;
+    width: 30%;
+    height: 25%;
 }
-.acessoRestritoIco{
-  
+
+.fundo {
+  /* background:#74b9ff; */
+  background: whitesmoke;
+  width: 100%;
+  height: 100%;
+}
+
+#iconSecurity{
+  position: absolute; left: 45%; font-size: 5em;
+}
+.entradas {
+  width: 80%; position: absolute; left: 10%; margin-top: 2%; margin-bottom: 2%;
 }
 
 .botoes {
   position: absolute;
-  left: 70%;
-  width: 40%;
-}
-
-.fundo {
-  background:black;
+  top: 61%;
+  padding-top: 5%;
+  margin-top: 2%;
+  left: 10%;
+  width: 80%;
+  height: 26%;
+  text-align: center;
 }
 
 .example-card {
-    max-width: 400px;
-  }
+  max-width: 60%;
+}
   
-  .example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-    background-size: cover;
-  }
