@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuService } from 'src/app/services/menu.service';
+import { Funcionalidade } from 'src/app/model/funcionalidade';
 
 @Component({
   selector: 'cms-menu',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  public funcionalidades: Funcionalidade[];
+
+  constructor(private menuService: MenuService) { }
 
   ngOnInit(): void {
+    this.funcionalidades = this.menuService.retornaFuncionalidadesMenu();
   }
 
 }

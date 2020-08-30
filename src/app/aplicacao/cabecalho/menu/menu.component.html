@@ -1,1 +1,8 @@
-<p>menu works!</p>
+<button id="menu" mat-button [matMenuTriggerFor]="menu">
+    <mat-icon aria-hidden="false" aria-label="Example home icon">menu</mat-icon>
+</button>
+<!-- #enddocregion mat-menu-trigger-for -->
+<mat-menu #menu="matMenu">
+    <button *ngFor="let funcionalidade of funcionalidades" mat-menu-item
+        class="itensMenu"><mat-icon class="icones" aria-hidden="false" aria-label="Example home icon">{{funcionalidade.icone}}</mat-icon> {{funcionalidade.nome}}</button>
+</mat-menu>

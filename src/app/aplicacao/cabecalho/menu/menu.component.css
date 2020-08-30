@@ -1,0 +1,14 @@
+#menu {
+    position: relative;
+    color: whitesmoke;
+    top: 20%;
+}
+
+.itensMenu {
+    color: #0984e3;
+    text-align: left;
+}
+
+.icones {
+    color: #0984e3;
+}
