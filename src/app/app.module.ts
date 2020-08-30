@@ -51,7 +51,13 @@ import { ConteudoComponent } from './aplicacao/conteudo/conteudo.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { RodapeComponent } from './login/rodape/rodape.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HomeComponent } from './aplicacao/home/home.component';
+import { CadastroComponent } from './aplicacao/cadastro/cadastro.component';
+import { UsuarioComponent } from './aplicacao/cadastro/usuario/usuario.component';
+import { SetorComponent } from './aplicacao/cadastro/setor/setor.component';
+import { TipoChamadoComponent } from './aplicacao/cadastro/tipo-chamado/tipo-chamado.component';
+import { RodapeAplicacaoComponent } from './aplicacao/rodape-aplicacao/rodape-aplicacao.component';
 
 
 @NgModule({
@@ -62,9 +68,15 @@ import { RodapeComponent } from './login/rodape/rodape.component';
     MenuComponent,
     AplicacaoComponent,
     ConteudoComponent,
-    RodapeComponent
+    HomeComponent,
+    CadastroComponent,
+    UsuarioComponent,
+    SetorComponent,
+    TipoChamadoComponent,
+    RodapeAplicacaoComponent
   ],
   imports: [
+    ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,

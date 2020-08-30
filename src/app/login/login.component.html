@@ -2,38 +2,40 @@
   <div class="box">
     <mat-card style="height: 100%; ">
       <div class="acessoRestritoIco">
-        <mat-icon id="iconSecurity" >admin_panel_settings</mat-icon>
+        <mat-icon id="iconSecurity">admin_panel_settings</mat-icon>
       </div>
       <br>
       <br>
       <mat-card-content>
-        <div>
-          <mat-form-field class="entradas" >
-            <mat-label>
-              <mat-icon aria-hidden="false" aria-label="Example home icon">account_circle</mat-icon> Usuario
-            </mat-label>
-            <input matInput>
-          </mat-form-field>
-          <br>
-          <br>
-          <mat-form-field class="entradas">
-            <mat-label>
-              <mat-icon aria-hidden="false" aria-label="Example home icon">visibility_off</mat-icon>Senha
-            </mat-label>
-            <input type="password" matInput formControlName="senha">
-          </mat-form-field>
-          <br>
-        </div>
-        <div class="botoes">
-          <button mat-button>
-            <mat-icon aria-hidden="false" aria-label="Example home icon">check</mat-icon>Login
-          </button>
-          <button mat-button>
-            <mat-icon aria-hidden="false" aria-label="Example home icon">cancel</mat-icon>Limpar
-          </button>
-        </div>
+        <form [formGroup]="login" (ngSubmit)="logar();">
+          <div>
+            <mat-form-field class="entradas">
+              <mat-label>
+                <mat-icon aria-hidden="false" aria-label="Example home icon">account_circle</mat-icon> Usuario
+              </mat-label>
+              <input matInput formControlName="usuario">
+            </mat-form-field>
+            <br>
+            <br>
+            <mat-form-field class="entradas">
+              <mat-label>
+                <mat-icon aria-hidden="false" aria-label="Example home icon">visibility_off</mat-icon>Senha
+              </mat-label>
+              <input type="password" matInput formControlName="senha">
+            </mat-form-field>
+            <br>
+          </div>
+          <div class="botoes">
+            <button mat-button [disabled]="!login.valid" type="submit" >
+              <mat-icon aria-hidden="false" aria-label="Example home icon">check</mat-icon>Login
+            </button>
+            <button mat-button type="button" (click)="limpar();">
+              <mat-icon aria-hidden="false"  aria-label="Example home icon">cancel</mat-icon>Limpar
+            </button>
+          </div>
+        </form>
       </mat-card-content>
-      
+
     </mat-card>
   </div>
 </div>
