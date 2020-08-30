@@ -6,3 +6,25 @@
     height: 40%;
     background:black;
 }
+.acessoRestritoIco{
+  
+}
+
+.botoes {
+  position: absolute;
+  left: 70%;
+  width: 40%;
+}
+
+.fundo {
+  background:black;
+}
+
+.example-card {
+    max-width: 400px;
+  }
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }

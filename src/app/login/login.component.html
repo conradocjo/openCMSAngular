@@ -1,3 +1,38 @@
-<div class="box">
-    teste
+<div class="fundo">
+  <div class="box">
+    <mat-card style="height: 100%;">
+      <div class="acessoRestritoIco">
+        <mat-icon style="position: relative; left: 45%; font-size: 5em;">admin_panel_settings</mat-icon>
+      </div>
+      <br>
+      <br>
+      <mat-card-content>
+        <div>
+          <mat-form-field style="width: 80%; position: relative; left: 10%;">
+            <mat-label>
+              <mat-icon aria-hidden="false" aria-label="Example home icon">account_circle</mat-icon> Usuario
+            </mat-label>
+            <input matInput>
+          </mat-form-field>
+          <br>
+          <br>
+          <mat-form-field style="width: 80%; position: relative; left: 10%;">
+            <mat-label>
+              <mat-icon aria-hidden="false" aria-label="Example home icon">visibility_off</mat-icon>Senha
+            </mat-label>
+            <input type="password" matInput formControlName="senha">
+          </mat-form-field>
+          <br>
+        </div>
+      </mat-card-content>
+      <div class="botoes">
+        <button mat-button>
+          <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>Login
+        </button>
+        <button mat-button>
+          <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>Limpar
+        </button>
+      </div>
+    </mat-card>
+  </div>
 </div>
