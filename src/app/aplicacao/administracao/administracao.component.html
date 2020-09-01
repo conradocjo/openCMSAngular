@@ -1,2 +1,8 @@
 <cms-cabecalho></cms-cabecalho>
+<div class="menu">
+    <div class="quadro" *ngFor="let funcionalidade of funcionalidadesMenu" routerLink="/{{funcionalidade.link}}">
+        <mat-icon class="icones" aria-hidden="false" aria-label="Example home icon">{{funcionalidade.icone}}</mat-icon><br>
+        {{funcionalidade.nome}}
+    </div>
+</div>
 <cms-rodape-aplicacao></cms-rodape-aplicacao>

@@ -1,0 +1,27 @@
+.menu {
+    width: 80%;
+    height: 75%;
+    position: absolute;
+    left: 10%;
+    margin-top: 2%;
+}
+
+.quadro {
+    width: 12%;
+    background: #0984e3;
+    background-image: linear-gradient(-90deg,#1B9CFC, #0984f9);
+    color: whitesmoke;
+    margin:2%;
+    text-align: center;
+    padding-top: 1%;
+    height: 10%;
+    border-radius: 3%;
+    font-weight: bold;
+    float:left;
+    cursor: pointer;
+}
+
+.quadro:hover {
+    background: #0984f9;
+    color: white;
+}
