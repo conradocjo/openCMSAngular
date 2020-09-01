@@ -5,3 +5,13 @@
     position: absolute;
     bottom: 0;
 }
+
+p{
+    text-align: center;
+    padding-top: 0.5%;
+    
+}
+a{
+    text-decoration: none;
+    color: white;
+}

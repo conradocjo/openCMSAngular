@@ -11,6 +11,7 @@ export class MenuService {
     new Funcionalidade("Administração", "administracao", "engineering"),
     new Funcionalidade("Fila de chamados", "filaChamados", "assignment"),
     new Funcionalidade("Abrir chamado", "abrirChamado", "bug_report"),
+    new Funcionalidade("Sair", "login", "power_settings_new"),
   ]
 
   private funcionalidadesMenuQuadro = [
