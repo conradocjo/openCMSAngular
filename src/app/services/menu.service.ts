@@ -7,15 +7,16 @@ import { Funcionalidade } from '../model/funcionalidade';
 export class MenuService {
 
   private funcionalidadesMenu = [
-    new Funcionalidade("Administração", "localhost", "engineering"),
-    new Funcionalidade("Fila de chamados", "localhost", "assignment"),
-    new Funcionalidade("Abrir chamado", "localhost", "bug_report"),
+    new Funcionalidade("Home", "home", "home"),
+    new Funcionalidade("Administração", "administracao", "engineering"),
+    new Funcionalidade("Fila de chamados", "filaChamados", "assignment"),
+    new Funcionalidade("Abrir chamado", "abrirChamado", "bug_report"),
   ]
 
   private funcionalidadesMenuQuadro = [
-    new Funcionalidade("Cadastrar Setor", "localhost", "add_business"),
-    new Funcionalidade("Cadastrar Usuário", "localhost", "account_circle"),
-    new Funcionalidade("Cadastrar Tipo de Chamado", "localhost", "addchart")
+    new Funcionalidade("Cadastrar Setor", "cadastrarSetor", "add_business"),
+    new Funcionalidade("Cadastrar Usuário", "cadastrarUsuario", "account_circle"),
+    new Funcionalidade("Cadastrar Tipo de Chamado", "cadastrarTipoChamado", "addchart")
   ]
 
   public retornaFuncionalidadesQuadro(): Funcionalidade[] {

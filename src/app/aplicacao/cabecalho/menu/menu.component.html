@@ -3,6 +3,6 @@
 </button>
 <!-- #enddocregion mat-menu-trigger-for -->
 <mat-menu #menu="matMenu">
-    <button *ngFor="let funcionalidade of funcionalidades" mat-menu-item
+    <button *ngFor="let funcionalidade of funcionalidades" mat-menu-item routerLink="/{{funcionalidade.link}}"
         class="itensMenu"><mat-icon class="icones" aria-hidden="false" aria-label="Example home icon">{{funcionalidade.icone}}</mat-icon> {{funcionalidade.nome}}</button>
 </mat-menu>

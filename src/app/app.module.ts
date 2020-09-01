@@ -53,11 +53,14 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './aplicacao/home/home.component';
-import { CadastroComponent } from './aplicacao/cadastro/cadastro.component';
-import { UsuarioComponent } from './aplicacao/cadastro/usuario/usuario.component';
-import { SetorComponent } from './aplicacao/cadastro/setor/setor.component';
-import { TipoChamadoComponent } from './aplicacao/cadastro/tipo-chamado/tipo-chamado.component';
 import { RodapeAplicacaoComponent } from './aplicacao/rodape-aplicacao/rodape-aplicacao.component';
+import { AdministracaoComponent } from './aplicacao/administracao/administracao.component';
+import { CadastroComponent } from './aplicacao/administracao/cadastro/cadastro.component';
+import { UsuarioComponent } from './aplicacao/administracao/cadastro/usuario/usuario.component';
+import { SetorComponent } from './aplicacao/administracao/cadastro/setor/setor.component';
+import { TipoChamadoComponent } from './aplicacao/administracao/cadastro/tipo-chamado/tipo-chamado.component';
+import { FilaChamadoComponent } from './aplicacao/fila-chamado/fila-chamado.component';
+import { AbrirChamadoComponent } from './aplicacao/abrir-chamado/abrir-chamado.component';
 
 
 @NgModule({
@@ -73,7 +76,10 @@ import { RodapeAplicacaoComponent } from './aplicacao/rodape-aplicacao/rodape-ap
     UsuarioComponent,
     SetorComponent,
     TipoChamadoComponent,
-    RodapeAplicacaoComponent
+    RodapeAplicacaoComponent,
+    AdministracaoComponent,
+    FilaChamadoComponent,
+    AbrirChamadoComponent
   ],
   imports: [
     ReactiveFormsModule,
