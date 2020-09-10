@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDatepickerInputEvent } from '@angular/material/datepicker';
+import { MatDialog } from '@angular/material/dialog';
+import { MatTableDataSource } from '@angular/material/table';
 import { UsuarioService } from 'src/app/services/usuario.service';
-import { UsuarioDto } from 'src/app/model/usuario-dto';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Usuario } from 'src/app/model/usuario';
+
 
 @Component({
   selector: 'cms-usuario',
@@ -9,29 +12,43 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./usuario.component.css']
 })
 export class UsuarioComponent implements OnInit {
+  public data: string;
 
-  public formularioUsuario = new FormGroup({
-    "nome": new FormControl("",Validators.required),
-    "imagemDePerfil": new FormControl(""),
-    "matricula": new FormControl("",Validators.required),
-    "email": new FormControl(""),
-    "usuario": new FormControl("",Validators.required),
-    "senha": new FormControl("",Validators.required),
-    "idSetor": new FormControl("", Validators.required),
-    "ramal": new FormControl(""),
-    "perfil": new FormControl("",Validators.required),
-    "dataNascimento": new FormControl("")
-  })
+  events: string[] = [];
 
-  constructor(private usuarioService: UsuarioService) { }
+  displayedColumns: string[] = ['nome', 'email', 'matricula', 'usuario', 'setor', 'perfil', 'status', 'dataNascimento', 'editar', 'excluir'];
+  public dataSource: MatTableDataSource<any>;
 
-  ngOnInit(): void {
+  public usuarios: Usuario[];
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  public cadastrarUsuario():void {
-    if(this.formularioUsuario.valid) {
-      this.usuarioService.cadastrarUsuario(this.formularioUsuario.value);
-    }
+  constructor(
+    private dialog: MatDialog,
+    private usuarioService: UsuarioService
+  ) {
+
   }
 
+  ngOnInit() {
+    let dataAtual = `${new Date().getMonth()}/${new Date().getFullYear()}`;
+    // this.usuarios = this.usuarioService.
+  }
+
+  addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
+  }
+
+  public excluir(element): void {
+  }
+
+  public editar(element): void {
+    this.usuarioService.editarUsuario();
+  }
+
+  public listarTodosUsuarios(): Usuario[] {
+    return null;
+  }
 }
