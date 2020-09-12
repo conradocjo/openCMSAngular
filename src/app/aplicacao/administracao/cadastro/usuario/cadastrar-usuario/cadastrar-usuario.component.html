@@ -1,0 +1,49 @@
+<div mat-dialog-content>
+<h1>Cadastrar novo usuário</h1>
+    <mat-form-field class="example-full-width">
+        <mat-label>Nome</mat-label>
+        <input matInput>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>Matricula</mat-label>
+        <input matInput>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>E-mail</mat-label>
+        <input matInput placeholder="teste@email.com">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>Setor</mat-label>
+        <input matInput placeholder="Informática">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>Usuário</mat-label>
+        <input matInput placeholder="nome.sobreNome">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>Senha</mat-label>
+        <input matInput>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>Ramal</mat-label>
+        <input matInput placeholder="1210">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>Data Nascimento</mat-label>
+        <input matInput>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>Perfil</mat-label>
+        <input matInput>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>Status</mat-label>
+        <input matInput>
+    </mat-form-field>
+
+
+</div>
+<div mat-dialog-actions>
+    <button mat-button >Cadastrar</button>
+    <button mat-button (click)="onNoClick()">Cancelar</button>
+</div>

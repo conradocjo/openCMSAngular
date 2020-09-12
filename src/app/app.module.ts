@@ -62,6 +62,7 @@ import { TipoChamadoComponent } from './aplicacao/administracao/cadastro/tipo-ch
 import { FilaChamadoComponent } from './aplicacao/fila-chamado/fila-chamado.component';
 import { AbrirChamadoComponent } from './aplicacao/abrir-chamado/abrir-chamado.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CadastrarUsuarioComponent } from './aplicacao/administracao/cadastro/usuario/cadastrar-usuario/cadastrar-usuario.component';
 
 
 @NgModule({
@@ -80,7 +81,8 @@ import { HttpClientModule } from '@angular/common/http';
     RodapeAplicacaoComponent,
     AdministracaoComponent,
     FilaChamadoComponent,
-    AbrirChamadoComponent
+    AbrirChamadoComponent,
+    CadastrarUsuarioComponent
   ],
   imports: [
     HttpClientModule,

@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { Usuario } from 'src/app/model/usuario';
+import { CadastrarUsuarioComponent } from './cadastrar-usuario/cadastrar-usuario.component';
 
 
 @Component({
@@ -12,6 +13,7 @@ import { Usuario } from 'src/app/model/usuario';
   styleUrls: ['./usuario.component.css']
 })
 export class UsuarioComponent implements OnInit {
+
   public data: string;
 
   events: string[] = [];
@@ -35,10 +37,21 @@ export class UsuarioComponent implements OnInit {
 
   ngOnInit() {
     let dataAtual = `${new Date().getMonth()}/${new Date().getFullYear()}`;
-    this.usuarioService.listarTodosUsuarios().then((resposta)=>{
+    this.usuarioService.listarTodosUsuarios().then((resposta) => {
       this.dataSource = new MatTableDataSource(resposta);
     })
     console.log(this.usuarios)
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(CadastrarUsuarioComponent, {
+      // data: {name: this.name, animal: this.animal}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      // this.animal = result;
+    });
   }
 
   addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
@@ -54,4 +67,5 @@ export class UsuarioComponent implements OnInit {
   public listarTodosUsuarios(): Usuario[] {
     return null;
   }
+
 }
