@@ -24,6 +24,8 @@ export class Usuario {
 
     public status: StatusAtivoInativo;
 
+    public statusIcone: string;
+
     public perfil: PerfilUsuario;
 
     public dataNascimento: string;
