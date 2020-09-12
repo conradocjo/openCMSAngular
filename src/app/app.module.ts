@@ -61,6 +61,7 @@ import { SetorComponent } from './aplicacao/administracao/cadastro/setor/setor.c
 import { TipoChamadoComponent } from './aplicacao/administracao/cadastro/tipo-chamado/tipo-chamado.component';
 import { FilaChamadoComponent } from './aplicacao/fila-chamado/fila-chamado.component';
 import { AbrirChamadoComponent } from './aplicacao/abrir-chamado/abrir-chamado.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -82,6 +83,7 @@ import { AbrirChamadoComponent } from './aplicacao/abrir-chamado/abrir-chamado.c
     AbrirChamadoComponent
   ],
   imports: [
+    HttpClientModule,
     ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,

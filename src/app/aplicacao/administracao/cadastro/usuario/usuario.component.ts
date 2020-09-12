@@ -35,7 +35,10 @@ export class UsuarioComponent implements OnInit {
 
   ngOnInit() {
     let dataAtual = `${new Date().getMonth()}/${new Date().getFullYear()}`;
-    // this.usuarios = this.usuarioService.
+    this.usuarioService.listarTodosUsuarios().then((resposta)=>{
+      this.dataSource = new MatTableDataSource(resposta);
+    })
+    console.log(this.usuarios)
   }
 
   addEvent(type: string, event: MatDatepickerInputEvent<Date>) {

@@ -27,7 +27,9 @@ export class UsuarioService {
   }
 
   public listarTodosUsuarios(): Promise<Usuario[]> {
-    return this.http.get(`${this.apiUsuario}/retornaTodosUsuarios`).toPromise().then()
+    return this.http.get<Usuario[]>(`${this.apiUsuario}/retornaTodosUsuarios`).toPromise().then((resposta)=>{
+      return resposta;
+    })
   }
 
 }
