@@ -19,7 +19,7 @@ export class UsuarioComponent implements OnInit {
 
   events: string[] = [];
 
-  displayedColumns: string[] = ['nome', 'email', 'matricula', 'usuario', 'setor', 'perfil',  'status', 'editar', 'excluir'];
+  displayedColumns: string[] = ['nome', 'email', 'matricula', 'usuario', 'setor', 'perfil', 'status', 'editar', 'excluir'];
   public dataSource: MatTableDataSource<any>;
 
   public usuarios: Usuario[];
@@ -37,14 +37,16 @@ export class UsuarioComponent implements OnInit {
   }
 
   ngOnInit() {
-    let dataAtual = `${new Date().getMonth()}/${new Date().getFullYear()}`;
+    this.carregarListaUsuarios();
+  }
+
+  private carregarListaUsuarios() {
     this.usuarioService.listarTodosUsuarios().then((resposta) => {
-      resposta.forEach(usuario=>{
-        usuario.statusIcone = usuario.status == StatusAtivoInativo.INATIVO ? "cancel": "check";
-      })
+      resposta.forEach(usuario => {
+        usuario.statusIcone = usuario.status == StatusAtivoInativo.INATIVO ? "cancel" : "check";
+      });
       this.dataSource = new MatTableDataSource(resposta);
-    })
-    console.log(this.usuarios)
+    });
   }
 
   openDialog(): void {
@@ -68,13 +70,20 @@ export class UsuarioComponent implements OnInit {
     this.usuarioService.editarUsuario();
   }
 
-  public ativarDesativar(element): void {
-    if (element.visivel) {
-      element.visivel = false;
-    } else {
-      element.visivel = true;
-    }
 
+  //TODO: Refatorar os confirms para modal.
+  public ativarDesativar(element): void {
+    let retorno = false;
+    if (element.status == StatusAtivoInativo.ATIVO) {
+      retorno = confirm("Deseja realmente inativar o usuário?")
+    } else {
+      retorno = confirm("Deseja realmente ativar o usuário?")
+    }
+    if (retorno) {
+      this.usuarioService.bloquearOuDesbloquearUsuario(element.id).then(() => {
+        this.carregarListaUsuarios();
+      })
+    }
   }
 
 }

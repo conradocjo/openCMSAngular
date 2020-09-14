@@ -12,8 +12,6 @@ export class UsuarioService {
 
   private apiUsuario: string = "http://localhost:8080/api/usuario";
 
-  private usuarios : Usuario[];
-
   public cadastrarUsuario(usuarioDto: UsuarioDto): void {
 
   }
@@ -22,12 +20,14 @@ export class UsuarioService {
 
   }
 
-  public bloquearOuDesbloquearUsuario(): void {
-
+  public bloquearOuDesbloquearUsuario(idUsuario: number): Promise<Usuario> {
+    return this.http.get<Usuario>(`${this.apiUsuario}/bloquearUsuario/${idUsuario}`).toPromise().then((resposta) => {
+      return resposta;
+    })
   }
 
   public listarTodosUsuarios(): Promise<Usuario[]> {
-    return this.http.get<Usuario[]>(`${this.apiUsuario}/retornaTodosUsuarios`).toPromise().then((resposta)=>{
+    return this.http.get<Usuario[]>(`${this.apiUsuario}/retornaTodosUsuarios`).toPromise().then((resposta) => {
       return resposta;
     })
   }
