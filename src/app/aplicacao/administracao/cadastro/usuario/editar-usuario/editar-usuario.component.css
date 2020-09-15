@@ -1,0 +1,14 @@
+
+.example-full-width {
+    width: 20%;
+    padding-right: 2%;
+}
+
+.mat-dialog-actions {
+    display: block;
+    float: right;
+}
+
+h1 {
+    color: #0984e3;
+}

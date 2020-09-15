@@ -16,7 +16,7 @@
         <mat-form-field class="example-full-width">
             <mat-label>Setor</mat-label>
             <select matNativeControl required formControlName="setor">
-                <option *ngFor="let setor of setores" value="{{setor.nome}}">{{setor.nome}}</option>
+                <option *ngFor="let setor of setores" value="{{setorSelecionado.nome}}">{{setorSelecionado.nome}}</option>
             </select>
         </mat-form-field>
         <mat-form-field class="example-full-width">

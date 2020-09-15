@@ -6,6 +6,7 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 import { Usuario } from 'src/app/model/usuario';
 import { CadastrarUsuarioComponent } from './cadastrar-usuario/cadastrar-usuario.component';
 import { StatusAtivoInativo } from 'src/app/model/enum/status-ativo-inativo.enum';
+import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.component';
 
 
 @Component({
@@ -49,9 +50,20 @@ export class UsuarioComponent implements OnInit {
     });
   }
 
-  openDialog(): void {
+  public cadastrarUsuario(): void {
     const dialogRef = this.dialog.open(CadastrarUsuarioComponent, {
       // data: {name: this.name, animal: this.animal}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      // this.animal = result;
+    });
+  }
+
+  public editarUsuario(element): void {
+    const dialogRef = this.dialog.open(EditarUsuarioComponent, {
+      data: {usuario: element}
     });
 
     dialogRef.afterClosed().subscribe(result => {

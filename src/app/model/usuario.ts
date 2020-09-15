@@ -1,4 +1,3 @@
-import { PerfilUsuario } from './enum/perfil-usuario.enum';
 import { Setor } from './setor';
 import { StatusAtivoInativo } from './enum/status-ativo-inativo.enum';
 
@@ -26,7 +25,7 @@ export class Usuario {
 
     public statusIcone: string;
 
-    public perfil: PerfilUsuario;
+    public perfil: string;
 
     public dataNascimento: string;
 

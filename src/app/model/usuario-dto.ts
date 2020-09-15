@@ -1,4 +1,3 @@
-import { PerfilUsuario } from './enum/perfil-usuario.enum';
 
 export class UsuarioDto {
     
@@ -18,7 +17,7 @@ export class UsuarioDto {
 
     public ramal: string;
 
-    public perfil: PerfilUsuario;
+    public perfil: string;
 
     public dataNascimento: string;
     

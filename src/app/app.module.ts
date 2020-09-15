@@ -63,6 +63,7 @@ import { FilaChamadoComponent } from './aplicacao/fila-chamado/fila-chamado.comp
 import { AbrirChamadoComponent } from './aplicacao/abrir-chamado/abrir-chamado.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CadastrarUsuarioComponent } from './aplicacao/administracao/cadastro/usuario/cadastrar-usuario/cadastrar-usuario.component';
+import { EditarUsuarioComponent } from './aplicacao/administracao/cadastro/usuario/editar-usuario/editar-usuario.component';
 
 
 @NgModule({
@@ -82,7 +83,8 @@ import { CadastrarUsuarioComponent } from './aplicacao/administracao/cadastro/us
     AdministracaoComponent,
     FilaChamadoComponent,
     AbrirChamadoComponent,
-    CadastrarUsuarioComponent
+    CadastrarUsuarioComponent,
+    EditarUsuarioComponent
   ],
   imports: [
     HttpClientModule,
