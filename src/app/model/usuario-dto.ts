@@ -1,25 +1,28 @@
 
 export class UsuarioDto {
-    
-    public nome: string;
 
-    public imagemDePerfil: string;
+    public constructor(
+        public nome: string,
 
-    public matricula: string;
+        public imagemDePerfil: string,
 
-    public email: string;
+        public matricula: string,
 
-    public usuario: string;
+        public email: string,
 
-    public senha: string;
+        public usuario: string,
 
-    public idSetor: number;
+        public senha: string,
 
-    public ramal: string;
+        public idSetor: number,
 
-    public perfil: string;
+        public ramal: string,
 
-    public dataNascimento: string;
-    
+        public perfil: string,
+
+        public dataNascimento: string
+    ) { }
+
+
 }
 

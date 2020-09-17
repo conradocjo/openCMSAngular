@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
@@ -7,6 +7,7 @@ import { Usuario } from 'src/app/model/usuario';
 import { CadastrarUsuarioComponent } from './cadastrar-usuario/cadastrar-usuario.component';
 import { StatusAtivoInativo } from 'src/app/model/enum/status-ativo-inativo.enum';
 import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.component';
+import { MatPaginator } from '@angular/material/paginator';
 
 
 @Component({
@@ -21,13 +22,18 @@ export class UsuarioComponent implements OnInit {
   events: string[] = [];
 
   displayedColumns: string[] = ['nome', 'email', 'matricula', 'usuario', 'setor', 'perfil', 'status', 'editar', 'excluir'];
-  public dataSource: MatTableDataSource<any>;
+  public dataSource: MatTableDataSource<Usuario>;
+
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
   public usuarios: Usuario[];
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
   }
 
   constructor(
@@ -46,7 +52,8 @@ export class UsuarioComponent implements OnInit {
       resposta.forEach(usuario => {
         usuario.statusIcone = usuario.status == StatusAtivoInativo.INATIVO ? "cancel" : "check";
       });
-      this.dataSource = new MatTableDataSource(resposta);
+      this.dataSource = new MatTableDataSource<Usuario>(resposta);
+      this.dataSource.paginator = this.paginator;
     });
   }
 
@@ -56,32 +63,24 @@ export class UsuarioComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      // this.animal = result;
+      this.carregarListaUsuarios();
     });
   }
 
   public editarUsuario(element): void {
     const dialogRef = this.dialog.open(EditarUsuarioComponent, {
-      data: {usuario: element}
+      data: { usuario: element }
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      // this.animal = result;
+      this.carregarListaUsuarios();
     });
   }
 
-  addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
-  }
-
   public excluir(element): void {
+    this.usuarioService.deletarUsuario(element);
+    this.carregarListaUsuarios();
   }
-
-  public editar(element): void {
-    this.usuarioService.editarUsuario();
-  }
-
 
   //TODO: Refatorar os confirms para modal.
   public ativarDesativar(element): void {

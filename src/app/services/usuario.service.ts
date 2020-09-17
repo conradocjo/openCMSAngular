@@ -12,9 +12,6 @@ export class UsuarioService {
 
   private apiUsuario: string = "http://localhost:8080/api/usuario";
 
-  public cadastrarUsuario(usuarioDto: UsuarioDto): void {
-
-  }
 
   public editarUsuario(): void {
 
@@ -29,6 +26,18 @@ export class UsuarioService {
   public listarTodosUsuarios(): Promise<Usuario[]> {
     return this.http.get<Usuario[]>(`${this.apiUsuario}/retornaTodosUsuarios`).toPromise().then((resposta) => {
       return resposta;
+    })
+  }
+
+  public cadastrarUsuario(usuarioDto: UsuarioDto): Promise<Usuario> {
+    return this.http.post<Usuario>(`${this.apiUsuario}/adicionarUsuario`,usuarioDto).toPromise().then((resposta)=>{
+      return resposta;
+    })
+  }
+
+  public deletarUsuario(user:any):void {
+    this.http.delete<Usuario>(`${this.apiUsuario}/deletarSetor`,user).toPromise().then(()=>{
+      console.log("deletado")
     })
   }
 

@@ -2,8 +2,10 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Setor } from 'src/app/model/setor';
+import { UsuarioDto } from 'src/app/model/usuario-dto';
 import { PerfilService } from 'src/app/services/perfil.service';
 import { SetorService } from 'src/app/services/setor.service';
+import { UsuarioService } from 'src/app/services/usuario.service';
 @Component({
   selector: 'cms-cadastrar-usuario',
   templateUrl: './cadastrar-usuario.component.html',
@@ -31,7 +33,8 @@ export class CadastrarUsuarioComponent implements OnInit {
     public dialogRef: MatDialogRef<CadastrarUsuarioComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     public setorService: SetorService,
-    public perfilService: PerfilService
+    public perfilService: PerfilService,
+    public usuarioService: UsuarioService
   ) { }
 
   ngOnInit(): void {
@@ -56,7 +59,16 @@ export class CadastrarUsuarioComponent implements OnInit {
   }
 
   public gravarConteudo(): void {
-    console.log(this.formulario.value);
+    if (this.formulario.valid) {
+      let usuario = new UsuarioDto(this.formulario.value.nome, null, this.formulario.value.matricula, this.formulario.value.email
+        , this.formulario.value.usuario, this.formulario.value.senha, this.formulario.value.setor, this.formulario.value.ramal, this.formulario.value.perfil,
+        this.formulario.value.dataNascimento);
+        alert(`${usuario.nome} cadastrado com sucesso.`)
+      this.usuarioService.cadastrarUsuario(usuario).catch((error) => {
+        alert(error)
+      })
+    }
+    this.dialogRef.close();
   }
 
 }
