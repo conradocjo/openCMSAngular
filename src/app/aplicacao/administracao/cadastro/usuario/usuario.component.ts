@@ -78,8 +78,13 @@ export class UsuarioComponent implements OnInit {
   }
 
   public excluir(element): void {
-    this.usuarioService.deletarUsuario(element);
-    this.carregarListaUsuarios();
+    this.usuarioService.deletarUsuario(element).then(()=>{
+      
+    }).then(()=>{
+      this.carregarListaUsuarios();
+    })
+    
+    
   }
 
   //TODO: Refatorar os confirms para modal.

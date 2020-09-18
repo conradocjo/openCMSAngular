@@ -4,6 +4,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Setor } from 'src/app/model/setor';
 import { PerfilService } from 'src/app/services/perfil.service';
 import { SetorService } from 'src/app/services/setor.service';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'cms-editar-usuario',
@@ -34,18 +35,14 @@ export class EditarUsuarioComponent implements OnInit {
     public dialogRef: MatDialogRef<EditarUsuarioComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     public setorService: SetorService,
-    public perfilService: PerfilService
+    public perfilService: PerfilService,
+    public usuarioService: UsuarioService
   ) { }
 
   ngOnInit(): void {
     this.carregarListaDeSetores();
     this.carregarListaDePerfis();
     this.setorSelecionado = this.data.usuario.setor;
-
-
-    console.log(this.data)
-
-    console.log(this.setorSelecionado.nome)
   }
 
   public carregarListaDeSetores(): void {
@@ -66,6 +63,7 @@ export class EditarUsuarioComponent implements OnInit {
 
   public gravarConteudo(): void {
     console.log(this.formulario.value);
+    this.usuarioService.editarUsuario(this.formulario.value)
   }
 
 }

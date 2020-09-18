@@ -55,7 +55,9 @@ export class CadastrarUsuarioComponent implements OnInit {
   }
 
   onNoClick(): void {
-    this.dialogRef.close();
+    let confirmacao = confirm("Deseja realmente cancelar?");
+    if (confirmacao)
+      this.dialogRef.close();
   }
 
   public gravarConteudo(): void {
@@ -63,7 +65,7 @@ export class CadastrarUsuarioComponent implements OnInit {
       let usuario = new UsuarioDto(this.formulario.value.nome, null, this.formulario.value.matricula, this.formulario.value.email
         , this.formulario.value.usuario, this.formulario.value.senha, this.formulario.value.setor, this.formulario.value.ramal, this.formulario.value.perfil,
         this.formulario.value.dataNascimento);
-        alert(`${usuario.nome} cadastrado com sucesso.`)
+      alert(`${usuario.nome} cadastrado com sucesso.`)
       this.usuarioService.cadastrarUsuario(usuario).catch((error) => {
         alert(error)
       })
