@@ -59,7 +59,6 @@ export class UsuarioComponent implements OnInit {
 
   public cadastrarUsuario(): void {
     const dialogRef = this.dialog.open(CadastrarUsuarioComponent, {
-      // data: {name: this.name, animal: this.animal}
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -78,13 +77,15 @@ export class UsuarioComponent implements OnInit {
   }
 
   public excluir(element): void {
-    this.usuarioService.deletarUsuario(element).then(()=>{
-      
-    }).then(()=>{
-      this.carregarListaUsuarios();
-    })
-    
-    
+    let respota = confirm(`Deseja realmente deletar o usuário ${element.nome}`)
+    if (respota) {
+      this.usuarioService.deletarUsuario(element).then(() => {
+        alert(`Usuário ${element.nome} deletado.`)
+      }).then(() => {
+        this.carregarListaUsuarios();
+      })
+    }
+
   }
 
   //TODO: Refatorar os confirms para modal.
@@ -97,8 +98,12 @@ export class UsuarioComponent implements OnInit {
     }
     if (retorno) {
       this.usuarioService.bloquearOuDesbloquearUsuario(element.id).then(() => {
-        this.carregarListaUsuarios();
-      })
+        if (element.status == StatusAtivoInativo.ATIVO) {
+          alert("Usuário bloqueado com sucesso.")
+        } else {
+          alert("Usuário ativado com sucesso.")
+        }
+      }).then(() => this.carregarListaUsuarios())
     }
   }
 

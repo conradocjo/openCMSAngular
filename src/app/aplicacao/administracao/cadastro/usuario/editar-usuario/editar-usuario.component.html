@@ -6,22 +6,14 @@
             <input matInput formControlName="nome">
         </mat-form-field>
         <mat-form-field class="example-full-width">
-            <mat-label>Matricula</mat-label>
-            <input matInput formControlName="matricula">
-        </mat-form-field>
-        <mat-form-field class="example-full-width">
             <mat-label>E-mail</mat-label>
             <input matInput placeholder="teste@email.com" formControlName="email">
         </mat-form-field>
         <mat-form-field class="example-full-width">
             <mat-label>Setor</mat-label>
             <select matNativeControl required formControlName="setor">
-                <option *ngFor="let setor of setores" value="{{setorSelecionado.nome}}">{{setorSelecionado.nome}}</option>
+                <option *ngFor="let setor of setores" value="{{setorSelecionado}}">{{setorSelecionado.nome}}</option>
             </select>
-        </mat-form-field>
-        <mat-form-field class="example-full-width">
-            <mat-label>Usuário</mat-label>
-            <input matInput placeholder="nome.sobreNome" formControlName="usuario">
         </mat-form-field>
         <mat-form-field class="example-full-width">
             <mat-label>Senha</mat-label>

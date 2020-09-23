@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Setor } from 'src/app/model/setor';
+import { Usuario } from 'src/app/model/usuario';
 import { PerfilService } from 'src/app/services/perfil.service';
 import { SetorService } from 'src/app/services/setor.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
@@ -62,8 +63,14 @@ export class EditarUsuarioComponent implements OnInit {
   }
 
   public gravarConteudo(): void {
-    console.log(this.formulario.value);
-    this.usuarioService.editarUsuario(this.formulario.value)
+    if (this.formulario.valid) {
+      let usuario: Usuario = new Usuario(this.data.usuario.id, this.formulario.value.nome, null, this.data.usuario.matricula,
+        this.formulario.value.email, this.data.usuario.usuario, this.formulario.value.senha, this.formulario.value.setor,
+        this.formulario.value.ramal, null, null, this.formulario.value.perfil, this.formulario.value.dataNascimento);
+      this.usuarioService.editarUsuario(usuario).then(() => {
+        alert("Dados atualizados com sucesso.")
+      }).then(()=>this.dialogRef.close())
+    }
   }
 
 }

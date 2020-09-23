@@ -1,32 +1,34 @@
-import { Setor } from './setor';
 import { StatusAtivoInativo } from './enum/status-ativo-inativo.enum';
+import { Setor } from './setor';
 
 export class Usuario {
 
-    public id: number;
+    public constructor(
 
-    public nome: string;
+        public id: number,
 
-    public imagemDePerfil: string;
+        public nome: string,
 
-    public matricula: string;
+        public imagemDePerfil: string,
 
-    public email: string;
+        public matricula: string,
 
-    public usuario: string;
+        public email: string,
 
-    public senha: string;
+        public usuario: string,
 
-    public setor: Setor;
+        public senha: string,
 
-    public ramal: string;
+        public setor: Setor,
 
-    public status: StatusAtivoInativo;
+        public ramal: string,
 
-    public statusIcone: string;
+        public status: StatusAtivoInativo,
 
-    public perfil: string;
+        public statusIcone: string,
 
-    public dataNascimento: string;
+        public perfil: string,
 
+        public dataNascimento: string
+    ) { }
 }

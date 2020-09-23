@@ -67,10 +67,11 @@ export class CadastrarUsuarioComponent implements OnInit {
         this.formulario.value.dataNascimento);
       alert(`${usuario.nome} cadastrado com sucesso.`)
       this.usuarioService.cadastrarUsuario(usuario).catch((error) => {
-        alert(error)
+        alert(`Erro: ${error.message}`)
+        console.log(error)
       })
+      this.dialogRef.close();
     }
-    this.dialogRef.close();
   }
 
 }
