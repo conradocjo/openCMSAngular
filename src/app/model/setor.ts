@@ -8,4 +8,6 @@ export class Setor {
 
     public status: StatusAtivoInativo;
 
+    public statusIcone: string;
+
 }

@@ -1,0 +1,14 @@
+<form [formGroup]="formulario" (ngSubmit)="gravarConteudo()">
+    <div mat-dialog-content>
+        <h1>Cadastrar novo setor</h1>
+        <mat-form-field class="example-full-width" style="width: 100%;">
+            <mat-label>Nome</mat-label>
+            <input matInput formControlName="nome">
+        </mat-form-field>
+
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button type="button" (click)="onNoClick()">Cancelar</button>
+        <button mat-button type="submit">Salvar</button>
+    </div>
+</form>

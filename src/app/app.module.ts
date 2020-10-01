@@ -64,6 +64,8 @@ import { AbrirChamadoComponent } from './aplicacao/abrir-chamado/abrir-chamado.c
 import { HttpClientModule } from '@angular/common/http';
 import { CadastrarUsuarioComponent } from './aplicacao/administracao/cadastro/usuario/cadastrar-usuario/cadastrar-usuario.component';
 import { EditarUsuarioComponent } from './aplicacao/administracao/cadastro/usuario/editar-usuario/editar-usuario.component';
+import { CadastrarSetorComponent } from './aplicacao/administracao/cadastro/setor/cadastrar-setor/cadastrar-setor.component';
+import { EditarSetorComponent } from './aplicacao/administracao/cadastro/setor/editar-setor/editar-setor.component';
 
 
 @NgModule({
@@ -84,7 +86,9 @@ import { EditarUsuarioComponent } from './aplicacao/administracao/cadastro/usuar
     FilaChamadoComponent,
     AbrirChamadoComponent,
     CadastrarUsuarioComponent,
-    EditarUsuarioComponent
+    EditarUsuarioComponent,
+    CadastrarSetorComponent,
+    EditarSetorComponent
   ],
   imports: [
     HttpClientModule,
