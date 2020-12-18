@@ -46,6 +46,7 @@ export class SetorComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.setorService.testeDocker();
     this.carregarListaSetor();
   }
 

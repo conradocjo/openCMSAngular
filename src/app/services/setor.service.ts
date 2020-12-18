@@ -35,4 +35,8 @@ export class SetorService {
     return null;
   }
 
+  public testeDocker ():void {
+    this.http.get(`${this.apiSetor}/testar`)
+  }
+
 }
